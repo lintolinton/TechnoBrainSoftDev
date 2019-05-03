@@ -2,12 +2,10 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
-namespace ConsoleApp1
+namespace TechnobrainSoftDev
 {
     public class Employee
     {
-
-        //variables
 
         //List of All employees
         IEnumerable<string> employeeList;
@@ -41,11 +39,6 @@ namespace ConsoleApp1
 
                 managerIDList = managersIDQuery.ToList();
 
-
-
-
-
-
                 var numberOfCEOQuery =
                 from emp in employeeList
                 let elements = emp.Split(',')
@@ -62,7 +55,7 @@ namespace ConsoleApp1
                 }
                 else
                 {
-                    Console.WriteLine("Awesome");
+                    //Console.WriteLine("Awesome");
      
                 }
 
@@ -108,7 +101,7 @@ namespace ConsoleApp1
 
              
             }
-
+            //Direct subordinates
             var directSubordinateSalary = 0;
 
             var directSubordinatesQuery =
@@ -120,7 +113,8 @@ namespace ConsoleApp1
             directSubordinateSalary = directSubordinatesQuery.ToList().Sum();
 
             salary += directSubordinateSalary;
-
+            
+            //indirect subordinates
             var indirectSubordinateSalary = 0;
 
             var indirectSubordinatesQuery =
@@ -145,7 +139,7 @@ namespace ConsoleApp1
 
             return salary;
         }
-
+        //main method to test the library
         static void Main(string[] args)
         {
             Employee empl = new Employee(@"C:\eclipse\test.csv");
